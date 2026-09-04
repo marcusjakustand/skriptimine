@@ -1,5 +1,4 @@
 #!/bin/bash
-# Skript arvutab expr abil küpsisetordi jaoks vajalike küpsisepakkide arvu
 
 echo -n "Sisesta kandiku pikkus (cm): "
 read kandik_pikkus
