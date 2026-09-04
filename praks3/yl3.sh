@@ -1,5 +1,4 @@
 #!/bin/bash
-# Skript arvutab täielikult täidetud busside arvu ja mahajäänud reisijate arvu
 
 echo -n "Sisesta reisijate arv: "
 read reisijad
