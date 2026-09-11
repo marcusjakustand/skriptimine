@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#Sisend
+echo -n "Sisesta esimene sõna: "
+read sona1
+
+echo -n "Sisesta teine sõna: "
+read sona2
+
