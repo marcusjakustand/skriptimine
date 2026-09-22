@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# 5 erineva lotonumbri genereerimine (1-50) ja salvestamine/kuvamine
+#
+
+temp_fail="ajutine_numbrid.txt"
+> "$temp_fail"  # Tühjendame ajutise faili alguses
+
+# Genereerime täpselt 5 erinevat numbrit
+while [ $(wc -l < "$temp_fail") -lt 5 ]
+do
+    nr=$(( ($RANDOM % 50) + 1 ))
+
+    # Kontrollime grep -x abil, kas täpne number on juba failis olemas
+    if ! grep -qx "$nr" "$temp_fail"; then
+        echo "$nr" >> "$temp_fail"
+    fi
+done
+
+# Loeme numbrid ajutisest failist ühele reale
+numbrid=$(tr '\n' ' ' < "$temp_fail")
+kuupaev_kellaaeg=$(date "+%Y-%m-%d %H:%M:%S")
+tulemus="$kuupaev_kellaaeg - Lotonumbrid: $numbrid"
+
+# Küsime kasutajalt, mida tulemusega teha
+echo "Kuidas soovid tulemust saada?"
+echo "1) Kuva terminalis"
+echo "2) Salvesta faili (lotonumbrid.txt)"
+read -p "Tee oma valik (1 või 2): " valik
+
+case $valik in
+    1)
+        echo "$tulemus"
+        ;;
+    2)
+        echo "$tulemus" >> lotonumbrid.txt
+        echo "Tulemus edukalt salvestatud faili lotonumbrid.txt!"
+        ;;
+    *)
+        echo "Tundmatu valik! Väljastame tulemuse terminali:"
+        echo "$tulemus"
+        ;;
+esac
+
+# Kustutame ajutise faili
+rm -f "$temp_fail"
