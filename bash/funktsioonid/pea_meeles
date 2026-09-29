@@ -1,0 +1,37 @@
+nimi() { ... }
+funktsiooni defineerimine
+
+nimi
+funktsiooni käivitamine
+
+$1
+funktsiooni esimene argument
+
+$2
+funktsiooni teine argument
+
+$#
+argumentide arv
+
+"$@"
+kõik argumendid
+
+local x=...
+lokaalne muutuja
+
+return 0
+funktsioon õnnestus
+
+return 1
+funktsioon ebaõnnestus
+
+$?
+viimase käsu/funktsiooni olekukood
+
+$(funktsioon)
+funktsiooni väljundi salvestamine
+
+source fail.sh
+teises failis olevate funktsioonide laadimine
+
+
