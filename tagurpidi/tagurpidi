@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+# Skript, mis väljastab iseenda lähtekoodi tagurpidi
+#
+
+cat "$0" | tac | rev

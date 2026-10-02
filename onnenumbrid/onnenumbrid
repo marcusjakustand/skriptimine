@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# Õnnenumbrite leidmine vahemikus 1000–9999
+#
+
+for (( i=1000; i<=9999; i++ ))
+do
+    hetke_arv=$i
+
+    # Korrame liitmist seni, kuni arv on suurem kui 9 (pole ühekohaline)
+    while [ $hetke_arv -ge 10 ]
+    do
+        summa=0
+        temp=$hetke_arv
+
+        # Eraldame numbrid ja liidame need kokku
+        while [ $temp -gt 0 ]
+        do
+            jaak=$(($temp % 10))
+            summa=$(($summa + $jaak))
+            temp=$(($temp / 10))
+        done
+
+        hetke_arv=$summa
+    done
+
+    # Kui korduva liitmise lõpptulemus on 7, väljastame algse arvu
+    if [ $hetke_arv -eq 7 ]; then
+        echo $i
+    fi
+done
